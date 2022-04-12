@@ -1,9 +1,13 @@
 import React from "react";
+import { GlobalStyle } from "./style";
 
 class App extends React.Component {
   render() {
     return (
-      <div>hello world</div>
+      <div>
+        <GlobalStyle />
+        hello world
+      </div>
     )
   }
 }
