@@ -2,9 +2,15 @@ import styled from "styled-components";
 import LogoPic from "../../statics/logo.png";
 
 export const HeaderWrapper = styled.div`
-  position: relative;
+  // position: relative;
   height: 56px;
   border-bottom: 1px solid #f0f0f0;
+`;
+
+export const WidthLimit = styled.div`
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
 `;
 
 export const Logo = styled.a.attrs({
@@ -52,19 +58,33 @@ export const NavSearchWrapper = styled.div`
     .icon-Magnifier {
       position: absolute;
       right: 5px;
-      bottom: 5px;
-      color: #969696;
+      bottom: 4px;
       width: 30px;
       line-height: 30px;
       border-radius: 15px;
       text-align: center;
       cursor: pointer;
-   }
+      color: #969696;
+    }
+    .iconfont {
+      &.focused {
+        background: #969696;
+        color: #fff;
+      }
+    }
+    .slide-enter {
+      transition: all .2s ease-out;
+    }
+    .slide-enter-active {
+      width: 240px;
+    }
+    .slide-exit {
+      transition: all .2s ease-out;
+    }
+    .slide-enter-exit {
+      width: 1600px;
+    }
 `;
-// .icon-Magnifier:focus {
-//   background: #969696;
-//   color: #fff;
-//  }
 
 export const NavSearch = styled.input.attrs({
   placeholder: "搜索"
@@ -78,10 +98,14 @@ export const NavSearch = styled.input.attrs({
   outline: none;
   margin-top: 9px;
   margin-left: 20px;
-  padding: 0 20px;
+  padding: 0 30px 0 20px;
   box-sizing: border-box;
   &::placeholder {
     color: #999;
+  }
+  &.focused {
+    width: 240px;
+     
   }
 `;
 
