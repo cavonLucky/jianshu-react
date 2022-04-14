@@ -18,7 +18,7 @@ export default (state = defaultState, action) => {
   }
 
   if (action.type === constants.HEADER_SEARCH_INPUT_BLUR) {
-    return state.set("focused", false);
+    return state.set("focused", false );
   }
 
   return state;

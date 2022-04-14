@@ -68,7 +68,9 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.header.get("focused")
+    // 两句代码等价
+    // focused: state.get("header").get("focused")
+    focused: state.getIn(["header", "focused"])
   }
 };
 
