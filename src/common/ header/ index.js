@@ -65,9 +65,11 @@ const Header = (props) => {
 
 }
 
-const mapStateToProps = (state) => ({
-  focused: state.focused
-});
+const mapStateToProps = (state) => {
+  return {
+    focused: state.header.focused
+  }
+};
 
 const mapDispatchToProps = (dispatch) => ({
   handleInputFocus: () => {
