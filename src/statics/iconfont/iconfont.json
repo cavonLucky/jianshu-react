@@ -6,6 +6,27 @@
   "description": "仿简书官网首页 iconfont",
   "glyphs": [
     {
+      "icon_id": "5387529",
+      "name": "加载_刷新",
+      "font_class": "jiazai_shuaxin",
+      "unicode": "eaf4",
+      "unicode_decimal": 60148
+    },
+    {
+      "icon_id": "9826650",
+      "name": "刷新",
+      "font_class": "shuaxin1",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "1256481",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
       "icon_id": "1621077",
       "name": "Aa",
       "font_class": "Aa",

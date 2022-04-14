@@ -108,6 +108,47 @@ export const NavSearch = styled.input.attrs({
   }
 `;
 
+export const NavSearchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 56px;
+  padding: 0 20px;
+  width: 240px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+`;
+
+export const SearchInfoTitle = styled.div`
+  margin: 20px 0 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`;
+
+export const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
+  .icon-jiazai_shuaxin {
+    margin-right: 2px;
+  }
+`;
+
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`; 
+
+export const SearchInfoItem = styled.a`
+  display: block;
+  float: left;
+  line-height: 20px;
+  padding: 0 10px;
+  margin: 0 10px 15px 0;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #787878;
+  cursor: pointer;
+`;
+
 export const Addition = styled.div`
   position: absolute;
   right: 0;

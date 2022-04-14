@@ -13,6 +13,11 @@ import {
   NavItem,
   NavSearchWrapper,
   NavSearch,
+  NavSearchInfo,
+  SearchInfoTitle,
+  SearchInfoSwitch,
+  SearchInfoList,
+  SearchInfoItem,
   Addition,
   Button
 } from "./style";
@@ -49,6 +54,34 @@ const Header = (props) => {
               />
             </CSSTransition>
             <i className={props.focused ? "iconfont icon-Magnifier focused" : "iconfont icon-Magnifier"}>&#xe62d;</i>
+
+            {/* 搜索发现 */}
+            {
+              props.focused ? (
+                <NavSearchInfo>
+                  <SearchInfoTitle>
+                    热门搜索
+                    <SearchInfoSwitch>
+                      <i className={"iconfont icon-jiazai_shuaxin"}>&#xeaf4;</i>
+                      换一批
+                    </SearchInfoSwitch>
+                  </SearchInfoTitle>
+                  <SearchInfoList>
+                    <SearchInfoItem>教育</SearchInfoItem>
+                    <SearchInfoItem>简书</SearchInfoItem>
+                    <SearchInfoItem>生活</SearchInfoItem>
+                    <SearchInfoItem>投稿</SearchInfoItem>
+                    <SearchInfoItem>历史</SearchInfoItem>
+                    <SearchInfoItem>PHP</SearchInfoItem>
+                    <SearchInfoItem>考研</SearchInfoItem>
+                    <SearchInfoItem>docker</SearchInfoItem>
+                    <SearchInfoItem>EOS</SearchInfoItem>
+                    <SearchInfoItem>微信小程序</SearchInfoItem>
+                  </SearchInfoList>
+                </NavSearchInfo>
+              ) : null
+            }
+
           </NavSearchWrapper>
           {/* 右边 - 输入 */}
           <Addition>
