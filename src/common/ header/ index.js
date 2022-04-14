@@ -16,6 +16,7 @@ import {
   Addition,
   Button
 } from "./style";
+import { actionCreators } from "./store";
 
 const Header = (props) => {
 
@@ -73,16 +74,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   handleInputFocus: () => {
-    const action = {
-      type: "search_input_focus"
-    };
-    dispatch(action);
+    dispatch(actionCreators.getSearchInputFocus());
   },
   handleInputBlur: () => {
-    const action = {
-      type: "search_input_blur"
-    };
-    dispatch(action);
+    dispatch(actionCreators.getSearchInputBlur());
   }
 });
 
