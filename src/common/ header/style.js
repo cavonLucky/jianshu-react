@@ -53,25 +53,25 @@ export const NavItem = styled.div`
 `;
 
 export const NavSearchWrapper = styled.div`
-    position: relative;
-    float: left;
-    .icon-Magnifier {
-      position: absolute;
-      right: 5px;
-      bottom: 4px;
-      width: 30px;
-      line-height: 30px;
-      border-radius: 15px;
-      text-align: center;
-      cursor: pointer;
-      color: #969696;
+  position: relative;
+  float: left;
+  .icon-Magnifier {
+    position: absolute;
+    right: 5px;
+    bottom: 4px;
+    width: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    color: #969696;
+  }
+  .iconfont {
+    &.focused {
+      background: #969696;
+      color: #fff;
     }
-    .iconfont {
-      &.focused {
-        background: #969696;
-        color: #fff;
-      }
-    }
+  }
 `;
 
 export const NavSearch = styled.input.attrs({
