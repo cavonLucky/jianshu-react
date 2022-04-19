@@ -8,7 +8,10 @@ import { fromJS } from "immutable";
  */
 const defaultState = fromJS({
   focused: false,
-  searchInfoList: []
+  searchInfoList: [],
+  page: 1,
+  pageTotal: 1,
+  mouseIn: false
 });
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -19,7 +22,17 @@ export default (state = defaultState, action) => {
     case constants.HEADER_SEARCH_INPUT_BLUR:
       return state.set("focused", false);
     case constants.HEADER_SEARCH_INFO_LIST:
-      return state.set("searchInfoList", action.data);
+      return state.merge({
+        searchInfoList: action.data,
+        pageTotal: action.pageTotal
+      });
+    // return state.set("searchInfoList", action.data).set("pageTotal", action.pageTotal);
+    case constants.HEADER_SEARCH_MOUSE_ENTER:
+      return state.set("mouseIn", true);
+    case constants.HEADER_SEARCH_MOUSE_LEAVE:
+      return state.set("mouseIn", false);
+    case constants.HEADER_SEARCH_CHANGE_PAGE:
+      return state.set("page", action.page);
     default:
       return state;
   }

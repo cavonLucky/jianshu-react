@@ -26,7 +26,29 @@ class Header extends React.Component {
 
   render() {
 
-    const { focused, handleInputFocus, handleInputBlur, searchInfoList } = this.props;
+    const {
+      focused,
+      handleInputFocus,
+      handleInputBlur,
+      searchInfoList,
+      page,
+      pageTotal,
+      handleMouseEnter,
+      handleMouseLeave,
+      mouseIn,
+      handleChangePage
+    } = this.props;
+
+    console.log(searchInfoList.toJS());
+
+    // 将 immutable 数据类型转为普通数据类型
+    const newList = searchInfoList.toJS();
+    let pageList = [];
+    if (newList.length) {
+      for (let i = (page - 1) * 10; i < page * 10; i++) {
+        pageList.push(<SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>);
+      }
+    }
 
     return (
       <HeaderWrapper>
@@ -60,27 +82,26 @@ class Header extends React.Component {
 
               {/* 搜索发现 */}
               {
-                focused ? (
-                  <NavSearchInfo>
-                    <SearchInfoTitle>
+                focused || mouseIn ? (
+                  <NavSearchInfo
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <SearchInfoTitle key={1}>
                       热门搜索
-                      <SearchInfoSwitch>
+                      <SearchInfoSwitch onClick={() => handleChangePage(page, pageTotal)}>
                         <i className={"iconfont icon-jiazai_shuaxin"}>&#xeaf4;</i>
                         换一批
                       </SearchInfoSwitch>
                     </SearchInfoTitle>
                     <SearchInfoList>
-                      {
-                        searchInfoList.map(item => {
-                          return <SearchInfoItem key={item}>{item}</SearchInfoItem>
-                        })
-                      }
+                      {pageList}
                     </SearchInfoList>
                   </NavSearchInfo>
                 ) : null
               }
-
             </NavSearchWrapper>
+
             {/* 右边 - 输入 */}
             <Addition>
               <Button className="wrtting">
@@ -102,7 +123,10 @@ const mapStateToProps = (state) => {
     // 两句代码等价
     // focused: state.get("header").get("focused")
     focused: state.getIn(["header", "focused"]),
-    searchInfoList: state.getIn(["header", "searchInfoList"])
+    searchInfoList: state.getIn(["header", "searchInfoList"]),
+    page: state.getIn(["header", "page"]),
+    pageTotal: state.getIn(["header", "pageTotal"]),
+    mouseIn: state.getIn(["header", "mouseIn"])
   }
 };
 
@@ -113,6 +137,22 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleInputBlur: () => {
     dispatch(actionCreators.getSearchInputBlur());
+  },
+  handleMouseEnter: () => {
+    dispatch(actionCreators.getSearchMouseEnter());
+  },
+  handleMouseLeave: () => {
+    dispatch(actionCreators.getSearchMouseLeave());
+  },
+  handleChangePage: (page, pageTotal) => {
+    // 如果当前页小于总页数，那么就当前页+1，1+1 2+1 3+1
+    if (page < pageTotal) {
+      dispatch(actionCreators.getSearchChangePage(page + 1));
+    }
+    // 当前页等于最后一页就回到第一页
+    else {
+      dispatch(actionCreators.getSearchChangePage(1));
+    }
   }
 });
 
