@@ -23,7 +23,10 @@ import {
 } from "./style";
 import { actionCreators } from "./store";
 class Header extends React.Component {
+
   render() {
+
+    const { focused, handleInputFocus, handleInputBlur, searchInfoList } = this.props;
 
     return (
       <HeaderWrapper>
@@ -43,21 +46,21 @@ class Header extends React.Component {
             {/* 中间 - 搜索 */}
             <NavSearchWrapper>
               <CSSTransition
-                in={this.props.focused}
+                in={focused}
                 timeout={200}
                 classNames={"slide"}
               >
                 <NavSearch
-                  className={this.props.focused ? "focused" : ""}
-                  onFocus={this.props.handleInputFocus}
-                  onBlur={this.props.handleInputBlur}
+                  className={focused ? "focused" : ""}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
                 />
               </CSSTransition>
-              <i className={this.props.focused ? "iconfont icon-Magnifier focused" : "iconfont icon-Magnifier"}>&#xe62d;</i>
+              <i className={focused ? "iconfont icon-Magnifier focused" : "iconfont icon-Magnifier"}>&#xe62d;</i>
 
               {/* 搜索发现 */}
               {
-                this.props.focused ? (
+                focused ? (
                   <NavSearchInfo>
                     <SearchInfoTitle>
                       热门搜索
@@ -68,7 +71,7 @@ class Header extends React.Component {
                     </SearchInfoTitle>
                     <SearchInfoList>
                       {
-                        this.props.searchInfoList.map(item => {
+                        searchInfoList.map(item => {
                           return <SearchInfoItem key={item}>{item}</SearchInfoItem>
                         })
                       }

@@ -13,18 +13,14 @@ const defaultState = fromJS({
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = defaultState, action) => {
-
-  if (action.type === constants.HEADER_SEARCH_INPUT_FOCUS) {
-    return state.set("focused", true);
+  switch (action.type) {
+    case constants.HEADER_SEARCH_INPUT_FOCUS:
+      return state.set("focused", true);
+    case constants.HEADER_SEARCH_INPUT_BLUR:
+      return state.set("focused", false);
+    case constants.HEADER_SEARCH_INFO_LIST:
+      return state.set("searchInfoList", action.data);
+    default:
+      return state;
   }
-
-  if (action.type === constants.HEADER_SEARCH_INPUT_BLUR) {
-    return state.set("focused", false);
-  }
-
-  if (action.type === constants.HEADER_SEARCH_INFO_LIST) {
-    return state.set("searchInfoList", action.data);
-  }
-
-  return state;
 }
