@@ -72,7 +72,7 @@ class Header extends React.Component {
               >
                 <NavSearch
                   className={focused ? "focused" : ""}
-                  onFocus={handleInputFocus}
+                  onFocus={() => handleInputFocus(searchInfoList)}
                   onBlur={handleInputBlur}
                 />
               </CSSTransition>
@@ -129,8 +129,15 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  handleInputFocus: () => {
-    dispatch(actionCreators.getSearchInfoList());
+  handleInputFocus: (list) => {
+    // 每点一次搜索框就会请求一次数据
+    // dispatch(actionCreators.getSearchInfoList());
+
+    // 避免重复发送请求（打印 list 得出数据，第一次点击 size 为 0，随后的每次点击 size 都是 50）
+    if (list.size === 0) {
+      // 那么等于 0 的时候进行派发
+      dispatch(actionCreators.getSearchInfoList());
+    }
     dispatch(actionCreators.getSearchInputFocus());
   },
   handleInputBlur: () => {
