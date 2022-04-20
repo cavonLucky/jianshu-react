@@ -39,8 +39,6 @@ class Header extends React.Component {
       handleChangePage
     } = this.props;
 
-    console.log(searchInfoList.toJS());
-
     // 将 immutable 数据类型转为普通数据类型
     const newList = searchInfoList.toJS();
     let pageList = [];
@@ -89,8 +87,8 @@ class Header extends React.Component {
                   >
                     <SearchInfoTitle key={1}>
                       热门搜索
-                      <SearchInfoSwitch onClick={() => handleChangePage(page, pageTotal)}>
-                        <i className={"iconfont icon-jiazai_shuaxin"}>&#xeaf4;</i>
+                      <SearchInfoSwitch onClick={() => handleChangePage(page, pageTotal, this.refSpin)}>
+                        <i ref={node => this.refSpin = node} className={"iconfont icon-jiazai_shuaxin"}>&#xeaf4;</i>
                         换一批
                       </SearchInfoSwitch>
                     </SearchInfoTitle>
@@ -144,8 +142,20 @@ const mapDispatchToProps = (dispatch) => ({
   handleMouseLeave: () => {
     dispatch(actionCreators.getSearchMouseLeave());
   },
-  handleChangePage: (page, pageTotal) => {
-    // 如果当前页小于总页数，那么就当前页+1，1+1 2+1 3+1
+  handleChangePage: (page, pageTotal, spin) => {
+    // 获取原始角度（如果这里的字符串不是数字，替换为空 === 截取数字）
+    let originAngle = spin.style.transform.replace(/[^0-9]/ig, "");
+    if (originAngle) {
+      // 存在 以十进制转化为数字
+      originAngle = parseInt(originAngle, 10);
+    } else {
+      // 不存在 初始值 0
+      originAngle = 0;
+    }
+    // 默认为 0 ，每点击一次换页 icon 就增加 360 的旋转动画（0 + 360、360 + 360、720 + 360...）
+    spin.style.transform = `rotate(${originAngle + 360}deg)`;
+
+    // 如果当前页小于总页数，那么就当前页+1（1+1、2+1、3+1...）
     if (page < pageTotal) {
       dispatch(actionCreators.getSearchChangePage(page + 1));
     }

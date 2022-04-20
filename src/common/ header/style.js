@@ -127,14 +127,21 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
   float: right;
   font-size: 13px;
+  cursor: pointer;
   .icon-jiazai_shuaxin {
+    display: block;
+    float: left;
     margin-right: 2px;
+    transition: all .2s ease-in;
+    transform-origin: center center;
   }
 `;
+// 围绕中心点进行旋转
+// transform-origin: center center;
 
 export const SearchInfoList = styled.div`
   overflow: hidden;
-`; 
+`;
 
 export const SearchInfoItem = styled.a`
   display: block;
