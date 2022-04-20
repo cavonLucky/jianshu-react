@@ -5,6 +5,9 @@ import { IconFontGlobalStyle } from "./statics/iconfont/iconfont";
 import { GlobalStyle } from "./style";
 import Header from "./common/ header/ index";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
+import Details from "./pages/details";
+
 class App extends React.Component {
   render() {
     return (
@@ -14,8 +17,8 @@ class App extends React.Component {
         <Header />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<div>home</div>}></Route>
-            <Route path="/details" element={<div>details</div>}></Route>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/details" element={<Details />}></Route>
           </Routes>
         </BrowserRouter>
       </Provider>
