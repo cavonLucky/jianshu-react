@@ -73,14 +73,8 @@ class Topic extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    topicItemList: state.get("home").get("topicList")
-  }
-}
-
-const mapDispatchToProps = (dispatch) => ({
-
+const mapStateToProps = (state) => ({
+  topicItemList: state.getIn(["home", "topicList"])
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Topic);
+export default connect(mapStateToProps, null)(Topic);

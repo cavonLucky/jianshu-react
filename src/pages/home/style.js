@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// 专题 start
 export const HomeWrapper = styled.div`
   width: 960px;
   margin: 0 auto;
@@ -25,7 +26,8 @@ export const HomeRight = styled.div`
 export const TopicWrapper = styled.div`
   padding: 20px 0 10px;
   overflow: hidden;
-  margin-left: -18px;
+  // margin-left: -18px;
+  border-bottom: 1px solid #dcdcdc;
 `;
 
 export const TopicItem = styled.div`
@@ -37,7 +39,8 @@ export const TopicItem = styled.div`
   border: 1px solid #dcdcdc;
   border-radius: 4px;
   padding-right: 10px;
-  margin: 0 0px 18px 18px;
+  // margin: 0 0px 18px 18px;
+  margin: 0 18px 18px 0;
   .topic-pic {
      width: 32px;
      height: 32px;
@@ -55,3 +58,40 @@ export const TopicItem = styled.div`
     background: none;
   }
 `;
+// 专题 end
+
+// list 列表 start
+export const ListItem = styled.div`
+  padding: 20px 0;
+  border-bottom: 1px solid #dcdcdc;
+  // border-top: 1px solid #dcdcdc;
+  overflow: hidden;
+  .list-pic {
+    width: 125px;
+    height: 100px;
+    display: block;
+    float: right;
+    border-radius: 10px;
+  }
+`;
+
+export const ListItemInfo = styled.div`
+  width: 498px;
+  float: left;
+  .title {
+    display: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    margin: -7px 0 4px;
+  }
+  .describe {
+    font-size: 13px;
+    line-height: 24px;
+    color: #999;
+  }
+`;
+
+// list 列表 end
+
+
