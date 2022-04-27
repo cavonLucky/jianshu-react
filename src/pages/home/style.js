@@ -19,7 +19,7 @@ export const HomeLeft = styled.div`
 `;
 
 export const HomeRight = styled.div`
-  width: 240px;
+  width: 280px;
   float: right;
 `;
 
@@ -95,3 +95,31 @@ export const ListItemInfo = styled.div`
 // list 列表 end
 
 
+// 板块推荐 start
+export const RecommendWrapper = styled.div`
+  margin: 30px 0px;
+  width: 280px;
+`;
+
+export const RecommendItem = styled.div`
+  width: 280px;
+  min-height: 50px;
+  // background: url(${props => props.url});
+  // background-size: contain;
+  img {
+    width: 100%;
+  }
+`;
+
+// 板块推荐 end
+
+// App 下载提示 start
+export const WriterWrapper = styled.div`
+  width: 278px;
+  border: 1px solid #dcdcdc;
+  border-radius : 3px;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+`;
+// App 下载提示 end
