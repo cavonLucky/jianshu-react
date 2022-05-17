@@ -35,8 +35,10 @@ export const getSearchChangePage = (page) => ({
 export const getSearchInfoList = () => {
   // 用到 redux-thunk 可以直接传一个 dispatch
   return (dispatch) => {
-    axios.get("/api/headerSearchInfoList.json").then(response => {
-      dispatch(searchInfoListAction(response.data));
+    axios.get("/api/header.json").then(response => {
+      if (response.data.success) {
+        dispatch(searchInfoListAction(response.data.data));
+      }
     }).catch((error) => {
       console.log("error");
     })

@@ -61,13 +61,16 @@ class Topic extends React.Component {
             )
           })
         }
-        <TopicItem className="topic-item-more">
-          <a className="topic-more" target="_blank" href="/recommendations/collections?utm_medium=index-collections&amp;utm_source=desktop">
-            更多热门专题 {`>`}
-            {/* <i className="iconfont ic-link"></i> */}
-          </a>
-        </TopicItem>
-
+        {
+          topicItemList.size > 0 && (
+            <TopicItem className="topic-item-more">
+              <a className="topic-more" target="_blank" href="/recommendations/collections?utm_medium=index-collections&amp;utm_source=desktop">
+                更多热门专题 {`>`}
+                {/* <i className="iconfont ic-link"></i> */}
+              </a>
+            </TopicItem>
+          )
+        }
       </TopicWrapper>
     )
   }
