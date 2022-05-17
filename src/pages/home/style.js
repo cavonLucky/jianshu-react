@@ -78,6 +78,9 @@ export const ListItem = styled.div`
 export const ListItemInfo = styled.div`
   width: 498px;
   float: left;
+  &.list-is-img {
+    width: 100%;
+  }
   .title {
     display: inherit;
     font-size: 18px;
@@ -90,6 +93,18 @@ export const ListItemInfo = styled.div`
     line-height: 24px;
     color: #999;
   }
+`;
+
+export const LoadMore = styled.div`
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  background-color: #a5a5a5;
+  margin: 30px auto 60px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
 `;
 
 // list 列表 end
