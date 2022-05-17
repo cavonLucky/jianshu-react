@@ -4,7 +4,6 @@
  */
 
 import React from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 import Topic from "./components/Topic";
 import List from "./components/List";
@@ -15,24 +14,12 @@ import {
   HomeLeft,
   HomeRight
 } from "./style";
+import { actionCreators } from './store';
 
 class Home extends React.Component {
 
   componentDidMount() {
-    axios.get('/api/home.json').then((response) => {
-      if (response.data.success) {
-        const { topicList, articleList, recommendList } = response.data.data;
-        const action = {
-          type: 'change_home_data',
-          topicList,
-          articleList,
-          recommendList
-        };
-        this.props.changeHomeData(action);
-      }
-    }).catch((error) => {
-      console.log(error.message);
-    });
+    this.props.changeHomeData();
   }
 
   render() {
@@ -58,8 +45,8 @@ class Home extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  changeHomeData: (action) => {
-    dispatch(action);
+  changeHomeData: () => {
+    dispatch(actionCreators.getHomeInfo());
   }
 });
 
