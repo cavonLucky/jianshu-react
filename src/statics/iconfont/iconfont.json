@@ -6,25 +6,60 @@
   "description": "仿简书官网首页 iconfont",
   "glyphs": [
     {
+      "icon_id": "10393378",
+      "name": "backtop",
+      "font_class": "backtop",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "1422331",
+      "name": "高级会员",
+      "font_class": "gaojihuiyuan",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "1422332",
+      "name": "企业会员",
+      "font_class": "qiyehuiyuan",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "1462906",
+      "name": "navigation",
+      "font_class": "navigation",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "2345109",
+      "name": "手机下载",
+      "font_class": "shoujixiazai",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "4518043",
+      "name": "技术服务",
+      "font_class": "jishufuwu",
+      "unicode": "ebce",
+      "unicode_decimal": 60366
+    },
+    {
+      "icon_id": "8617247",
+      "name": "navigation",
+      "font_class": "navigation1",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
       "icon_id": "5387529",
       "name": "加载_刷新",
       "font_class": "jiazai_shuaxin",
       "unicode": "eaf4",
       "unicode_decimal": 60148
-    },
-    {
-      "icon_id": "9826650",
-      "name": "刷新",
-      "font_class": "shuaxin1",
-      "unicode": "e60f",
-      "unicode_decimal": 58895
-    },
-    {
-      "icon_id": "1256481",
-      "name": "刷新",
-      "font_class": "shuaxin",
-      "unicode": "e60a",
-      "unicode_decimal": 58890
     },
     {
       "icon_id": "1621077",
@@ -46,13 +81,6 @@
       "font_class": "yumaobi",
       "unicode": "e6e5",
       "unicode_decimal": 59109
-    },
-    {
-      "icon_id": "21396811",
-      "name": "line-quill pen（羽毛笔）",
-      "font_class": "line-quillpenyumaobi",
-      "unicode": "e6eb",
-      "unicode_decimal": 59115
     }
   ]
 }
