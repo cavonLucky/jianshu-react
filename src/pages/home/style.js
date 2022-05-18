@@ -138,3 +138,19 @@ export const WriterWrapper = styled.div`
   text-align: center;
 `;
 // App 下载提示 end
+
+// 回到顶部 star
+export const BackTop = styled.div`
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background-color: hsla(0,0%,71%,.1);
+  border: 1px solid #dcdcdc;
+  position: fixed;
+  z-index: 1040;
+  bottom: 40px;
+  right: 40px;
+  text-align: center;
+  cursor: pointer;
+`;
+// 回到顶部 end

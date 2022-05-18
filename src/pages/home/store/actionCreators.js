@@ -17,7 +17,7 @@ export const getHomeInfo = () => {
         dispatch(action);
       }
     }).catch((error) => {
-      console.log(error.message);
+      alert(error.message);
     });
   }
 }
@@ -35,7 +35,12 @@ export const getMoreList = (page) => {
         dispatch(action);
       }
     }).catch((error) => {
-      console.log(error.message);
+      alert(error.message);
     });
   }
 }
+
+export const toggleTopShow = show => ({
+  type: constants.TOGGLE_SCROLL_SHOW,
+  show
+})

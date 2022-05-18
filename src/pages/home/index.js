@@ -12,7 +12,8 @@ import Writer from "./components/Writer";
 import {
   HomeWrapper,
   HomeLeft,
-  HomeRight
+  HomeRight,
+  BackTop
 } from "./style";
 import { actionCreators } from './store';
 
@@ -20,6 +21,22 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.changeHomeData();
+    this.bindEvents();
+  }
+
+  // 组件即将被销毁的时候 window 上绑定的 scroll 事件监听移除
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.props.changeScrollTopShow);
+  }
+
+  // 回到顶部
+  handleScrollTop = () => {
+    window.scrollTo(0, 0);
+  }
+
+  // 组件挂载之后在 window 上绑定 scroll 事件监听
+  bindEvents = () => {
+    window.addEventListener('scroll', this.props.changeScrollTopShow)
   }
 
   render() {
@@ -39,15 +56,34 @@ class Home extends React.Component {
           <Writer />
         </HomeRight>
 
+        {/* 回到顶部 */}
+        {
+          this.props.showScroll && <BackTop onClick={this.handleScrollTop}><i className="iconfont icon-backtop">&#xe609;</i></BackTop>
+        }
+
       </HomeWrapper>
     )
   }
 }
 
+const mapStateToProps = (state) => ({
+  showScroll: state.getIn(['home', 'showScroll'])
+});
+
 const mapDispatchToProps = (dispatch) => ({
   changeHomeData: () => {
     dispatch(actionCreators.getHomeInfo());
+  },
+  changeScrollTopShow: () => {
+    // 滚动区域大于 400
+    if (document.documentElement.scrollTop > 200) {
+      // 显示
+      dispatch(actionCreators.toggleTopShow(true));
+    } else {
+      // 隐藏
+      dispatch(actionCreators.toggleTopShow(false));
+    }
   }
 });
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

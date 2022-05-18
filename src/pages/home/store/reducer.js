@@ -6,7 +6,8 @@ const defaultState = fromJS({
   topicList: [],
   articleList: [],
   recommendList: [],
-  articlePage: 1
+  articlePage: 1,
+  showScroll: false
 });
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -23,7 +24,9 @@ export default (state = defaultState, action) => {
       return state.merge({
         articleList: state.get('articleList').concat(action.list),
         articlePage: action.nextPage
-      })
+      });
+    case constants.TOGGLE_SCROLL_SHOW:
+      return state.set('showScroll', action.show);
     default:
       return state;
   }
