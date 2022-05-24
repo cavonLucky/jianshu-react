@@ -2,7 +2,7 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2022-04-20 17:43:53
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2022-05-24 16:19:09
+ * @LastEditTime: 2022-05-24 17:04:41
  * @FilePath: /jianshu-react/src/pages/details/index.js
  * @Description: 详情页面
  */
@@ -10,8 +10,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { DetailsWrapper, Header, Content } from './style';
+import { actionCreators } from "./store";
 
 class Details extends React.Component {
+
+  componentDidMount() {
+    this.props.getDetails();
+  }
+
   render() {
     const { title, content } = this.props;
     return (
@@ -35,6 +41,12 @@ class Details extends React.Component {
 const mapStateToProps = (state) => ({
   title: state.getIn(['details', 'title']),
   content: state.getIn(['details', 'content'])
-})
+});
 
-export default connect(mapStateToProps, null)(Details);
+const mapDispatchToProps = (dispatch) => ({
+  getDetails: () => {
+    dispatch(actionCreators.getDetails());
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

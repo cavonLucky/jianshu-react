@@ -2,19 +2,28 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2022-05-24 13:34:46
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2022-05-24 15:39:00
+ * @LastEditTime: 2022-05-24 18:16:56
  * @FilePath: /jianshu-react/src/pages/details/store/reducer.js
  * @Description: 数据层，记录存放 store 的数据
  */
 
 import { fromJS } from "immutable";
+import * as constants from "./constants";
 
 const defaultState = fromJS({
-  title: "世界是有心人的",
-  content: '<img src="//upload-images.jianshu.io/upload_images/21393702-491a02d544269933.jpeg?imageMogr2/auto-orient/strip|imageView2/2/w/791/format/webp" alt="" /><p>有人说过这样一段话，深以为然。“这个世界不是有钱人的世界，也不是无钱人的世界，它是有心人的世界。”</p><p>如此这样以为，那是因为世界是需要被感受的，而唯有心才能感受这世界。</p><p>当然，世界没有想像中的那么好，也没有想像中的那么糟，世界有好有坏，有悲有喜，有苦有甜，而这一切都需用心来认真体会和感受。</p><p>有钱人不可拥有世界，没钱人也不能被世界抛弃。有钱人买不来所有的快乐，没钱人也不能丧失生活的幸福。</p><p>不管富裕还是贫穷，有一颗感知世界的心，懂得知恩图报，懂得悲天悯人，懂得春有百花秋有月，夏有凉风冬有雪，便是人间好时候。</p><p>钱多怎样，钱少又怎样，钱多多花，钱少少花，只要有一颗善心，世界就是你的。</p>'
+  title: '',
+  content: ''
 });
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = defaultState, action) => {
-  return state;
+  switch (action.type) {
+    case constants.CHANGE_DETAILS_DATA:
+      return state.merge = ({
+        title: action.title,
+        content: action.content
+      });
+    default:
+      return state;
+  }
 }
