@@ -2,7 +2,7 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2022-04-20 17:43:53
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2022-05-24 17:04:41
+ * @LastEditTime: 2022-06-08 19:56:45
  * @FilePath: /jianshu-react/src/pages/details/index.js
  * @Description: 详情页面
  */
@@ -15,10 +15,11 @@ import { actionCreators } from "./store";
 class Details extends React.Component {
 
   componentDidMount() {
-    this.props.getDetails();
+    this.props.getDetails(this?.props?.match?.params?.id);
   }
 
   render() {
+    console.log('details - this :>> ', this);
     const { title, content } = this.props;
     return (
       <DetailsWrapper>
@@ -44,8 +45,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getDetails: () => {
-    dispatch(actionCreators.getDetails());
+  getDetails: (id) => {
+    dispatch(actionCreators.getDetails(id));
   }
 });
 

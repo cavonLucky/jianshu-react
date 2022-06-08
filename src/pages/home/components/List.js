@@ -1,9 +1,15 @@
-/**
- * @template 列表
+/*
+ * @Author: cavonLucky 425247833@qq.com
+ * @Date: 2022-04-20 21:29:52
+ * @LastEditors: cavonLucky 425247833@qq.com
+ * @LastEditTime: 2022-06-08 17:39:40
+ * @FilePath: /jianshu-react/src/pages/home/components/List.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   ListItem,
   ListItemInfo,
@@ -29,17 +35,19 @@ class List extends React.Component {
         {
           list.toJS().map((item, index) => {
             return (
-              <ListItem key={index}>
-                {/* 左边 图片 */}
-                {
-                  item.src !== '' && <img className="list-pic" src={item.src} alt="120" />
-                }
-                {/* 右边 内容信息 */}
-                <ListItemInfo className={item.src === '' ? 'list-is-img' : ''}>
-                  <h3 className="title">{item.title}</h3>
-                  <p className="describe">{item.describe}</p>
-                </ListItemInfo>
-              </ListItem>
+              <Link key={index} to={`/details/${item.id}`}>
+                <ListItem>
+                  {/* 左边 图片 */}
+                  {
+                    item.src !== '' && <img className="list-pic" src={item.src} alt="120" />
+                  }
+                  {/* 右边 内容信息 */}
+                  <ListItemInfo className={item.src === '' ? 'list-is-img' : ''}>
+                    <h3 className="title">{item.title}</h3>
+                    <p className="describe">{item.describe}</p>
+                  </ListItemInfo>
+                </ListItem>
+              </Link>
             )
           })
         }

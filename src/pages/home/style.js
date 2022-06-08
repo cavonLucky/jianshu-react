@@ -65,6 +65,7 @@ export const ListItem = styled.div`
   padding: 20px 0;
   border-bottom: 1px solid #dcdcdc;
   // border-top: 1px solid #dcdcdc;
+  color: rgb(0, 0, 0);
   overflow: hidden;
   .list-pic {
     width: 125px;
