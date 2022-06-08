@@ -2,7 +2,7 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2022-04-20 17:43:53
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2022-06-08 19:56:45
+ * @LastEditTime: 2022-06-08 21:01:51
  * @FilePath: /jianshu-react/src/pages/details/index.js
  * @Description: 详情页面
  */
@@ -15,12 +15,15 @@ import { actionCreators } from "./store";
 class Details extends React.Component {
 
   componentDidMount() {
-    this.props.getDetails(this?.props?.match?.params?.id);
+    // this.props.getDetails(this?.props?.match?.params?.id);
+    let searchs = this?.props?.location?.search;
+    let getId = new URLSearchParams(searchs.slice(1));
+    this.props.getDetails(getId.get('id'));
   }
 
   render() {
-    console.log('details - this :>> ', this);
     const { title, content } = this.props;
+
     return (
       <DetailsWrapper>
         <Header>{title}</Header>
