@@ -1,6 +1,10 @@
-
-/**
- * @template 首页 - 导航栏下面中间部分
+/*
+ * @Author: cavonLucky 425247833@qq.com
+ * @Date: 2022-04-20 17:27:46
+ * @LastEditors: cavonLucky 425247833@qq.com
+ * @LastEditTime: 2022-06-09 15:53:03
+ * @FilePath: /jianshu-react/src/pages/home/index.js
+ * @Description: 首页 - 导航栏下面中间部分
  */
 
 import React from "react";
@@ -17,7 +21,7 @@ import {
 } from "./style";
 import { actionCreators } from './store';
 
-class Home extends React.Component {
+class Home extends React.PureComponent {
 
   componentDidMount() {
     this.props.changeHomeData();

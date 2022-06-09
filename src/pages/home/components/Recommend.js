@@ -1,12 +1,17 @@
-/**
- * @template 板块 推荐
+/*
+ * @Author: cavonLucky 425247833@qq.com
+ * @Date: 2022-04-20 21:29:52
+ * @LastEditors: cavonLucky 425247833@qq.com
+ * @LastEditTime: 2022-06-09 15:56:22
+ * @FilePath: /jianshu-react/src/pages/home/components/Recommend.js
+ * @Description: 板块推荐
  */
 
 import React from "react";
 import { connect } from "react-redux";
 import { RecommendWrapper, RecommendItem } from "../style";
 
-class Recommend extends React.Component {
+class Recommend extends React.PureComponent {
   render() {
     return (
       <RecommendWrapper>

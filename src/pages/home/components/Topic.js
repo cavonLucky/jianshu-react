@@ -1,5 +1,10 @@
-/**
- * @template 专题
+/*
+ * @Author: cavonLucky 425247833@qq.com
+ * @Date: 2022-04-20 21:29:52
+ * @LastEditors: cavonLucky 425247833@qq.com
+ * @LastEditTime: 2022-06-09 15:56:47
+ * @FilePath: /jianshu-react/src/pages/home/components/Topic.js
+ * @Description: 专题
  */
 
 import React from "react";
@@ -9,7 +14,7 @@ import {
   TopicItem
 } from "../style";
 
-class Topic extends React.Component {
+class Topic extends React.PureComponent {
 
   render() {
 

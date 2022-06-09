@@ -2,9 +2,9 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2022-04-20 21:29:52
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2022-06-08 20:11:04
+ * @LastEditTime: 2022-06-09 15:56:40
  * @FilePath: /jianshu-react/src/pages/home/components/List.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 列表
  */
 
 import React from "react";
@@ -17,7 +17,7 @@ import {
 } from "../style";
 import { actionCreators } from "../store";
 
-class List extends React.Component {
+class List extends React.PureComponent {
 
   render() {
 
@@ -35,8 +35,8 @@ class List extends React.Component {
         {
           list.toJS().map((item, index) => {
             return (
-              // <Link key={index} to={`/details/${item.id}`}>
-              <Link key={index} to={`/details/?id=${item.id}`}>
+              <Link key={index} to={`/details/${item.id}`}>
+                {/* <Link key={index} to={`/details/?id=${item.id}`}> */}
                 <ListItem>
                   {/* 左边 图片 */}
                   {
