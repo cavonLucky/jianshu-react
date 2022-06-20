@@ -1,7 +1,15 @@
+/*
+ * @Author: cavonLucky 425247833@qq.com
+ * @Date: 2022-06-08 17:27:46
+ * @LastEditors: cavonLucky 425247833@qq.com
+ * @LastEditTime: 2022-06-20 15:45:23
+ * @FilePath: /jianshu-react/src/pages/home/store/actionCreators.js
+ * @Description: 
+ */
 
 import axios from "axios";
 import * as constants from "./constants";
-import { fromJS } from "immutable"
+import { fromJS } from "immutable";
 
 export const getHomeInfo = () => {
   return (dispatch) => {
@@ -20,7 +28,7 @@ export const getHomeInfo = () => {
       alert(error.message);
     });
   }
-}
+};
 
 export const getMoreList = (page) => {
   return (dispatch) => {
@@ -38,9 +46,9 @@ export const getMoreList = (page) => {
       alert(error.message);
     });
   }
-}
+};
 
 export const toggleTopShow = show => ({
   type: constants.TOGGLE_SCROLL_SHOW,
   show
-})
+});

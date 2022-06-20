@@ -2,7 +2,7 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2022-06-09 15:44:40
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2022-06-20 11:38:48
+ * @LastEditTime: 2022-06-20 15:10:34
  * @FilePath: /jianshu-react/src/pages/login/index.js
  * @Description: 登录页面
  */
@@ -13,7 +13,7 @@ import { Redirect } from "react-router-dom";
 import { LoginWrapper, LoginBox, Input, Button } from './style';
 import { actionCreators } from './store';
 
-class login extends React.PureComponent {
+class Login extends React.PureComponent {
 
   render() {
     const { login, loginStatus } = this.props;
@@ -39,15 +39,15 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   login: (accoutElem, passwordElem) => {
-    if (!accoutElem.value) {
-      return alert('请输入手机号或邮箱')
-    }
-    if (!passwordElem.value) {
-      return alert('请输入密码')
-    }
-    dispatch(actionCreators.login(accoutElem, passwordElem));
+    // if (!accoutElem.value) {
+    //   return alert('请输入手机号或邮箱')
+    // }
+    // if (!passwordElem.value) {
+    //   return alert('请输入密码')
+    // }
+    dispatch(actionCreators.login(passwordElem.value, accoutElem.value));
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
 

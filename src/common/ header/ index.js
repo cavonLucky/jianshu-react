@@ -23,6 +23,7 @@ import {
 } from "./style";
 import { actionCreators } from "./store";
 import { actionCreators as loginActionCreators } from '../../pages/login/store';
+import { Link } from "react-router-dom";
 
 class Header extends React.PureComponent {
 
@@ -56,7 +57,7 @@ class Header extends React.PureComponent {
       <HeaderWrapper>
         <WidthLimit>
           {/* 左边 - logo */}
-          <Logo onClick={() => { window.location.href = '/'; }} />
+          <Link to={'/'}><Logo /></Link>
           <Nav>
             {/* 中间 - 左边 */}
             <NavItem className="left active">首页</NavItem>
@@ -66,7 +67,10 @@ class Header extends React.PureComponent {
               login ? (
                 <NavItem className="right" onClick={() => { logout(); }}>退出</NavItem>
               ) : (
-                <NavItem className="right" onClick={() => { window.location.href = '/login'; }}>登录</NavItem>
+                <Link to={'/login'}>
+                  <NavItem className="right">登录</NavItem>
+                </Link>
+
               )
             }
             {/* 中间 - 右边 Aa */}
@@ -112,10 +116,12 @@ class Header extends React.PureComponent {
 
             {/* 右边 - 输入 */}
             <Addition>
-              <Button className="wrtting">
-                <i className="iconfont icon-yumaobi">&#xe6e5;</i>
-                写文章
-              </Button>
+              <Link to={'/write'}>
+                <Button className="wrtting">
+                  <i className="iconfont icon-yumaobi">&#xe6e5;</i>
+                  写文章
+                </Button>
+              </Link>
               <Button className="reg">注册</Button>
             </Addition>
 

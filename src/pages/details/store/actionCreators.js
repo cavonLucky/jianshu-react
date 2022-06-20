@@ -2,7 +2,7 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2022-05-24 13:35:28
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2022-06-08 19:58:05
+ * @LastEditTime: 2022-06-20 15:46:49
  * @FilePath: /jianshu-react/src/pages/details/store/actionCreators.js
  * @Description: React Component 的数据载体，数据传递角色
  */
@@ -26,4 +26,4 @@ export const getDetails = (id) => {
       alert(error.message);
     });
   }
-}
+};
