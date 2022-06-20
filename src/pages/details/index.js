@@ -2,13 +2,14 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2022-04-20 17:43:53
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2022-06-09 15:49:46
+ * @LastEditTime: 2022-06-20 16:18:10
  * @FilePath: /jianshu-react/src/pages/details/index.js
  * @Description: 详情页面
  */
 
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { DetailsWrapper, Header, Content } from './style';
 import { actionCreators } from "./store";
 
@@ -53,4 +54,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Details);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Details));

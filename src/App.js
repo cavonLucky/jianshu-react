@@ -18,7 +18,8 @@ import Header from "./common/ header/ index";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Write from "./pages/write";
-import Details from "./pages/details";
+// import Details from "./pages/details";
+import Details from "./pages/details/loadable";
 
 class App extends React.PureComponent {
   render() {
