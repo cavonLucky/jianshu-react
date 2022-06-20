@@ -14,9 +14,7 @@ export const WidthLimit = styled.div`
   margin: 0 auto;
 `;
 
-export const Logo = styled.a.attrs({
-  href: "/"
-})`
+export const Logo = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -25,7 +23,21 @@ export const Logo = styled.a.attrs({
   height: 56px;
   background: url(${LogoPic});
   background-size: contain;
+  cursor: pointer;
 `;
+
+// export const Logo = styled.a.attrs({
+//   href: "/"
+// })`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   display: block;
+//   width: 100px;
+//   height: 56px;
+//   background: url(${LogoPic});
+//   background-size: contain;
+// `;
 
 export const Nav = styled.div`
   width: 960px;

@@ -22,7 +22,9 @@ import {
   Button
 } from "./style";
 import { actionCreators } from "./store";
-class Header extends React.Component {
+import { actionCreators as loginActionCreators } from '../../pages/login/store';
+
+class Header extends React.PureComponent {
 
   render() {
 
@@ -36,7 +38,9 @@ class Header extends React.Component {
       handleMouseEnter,
       handleMouseLeave,
       mouseIn,
-      handleChangePage
+      handleChangePage,
+      login,
+      logout
     } = this.props;
 
     // 将 immutable 数据类型转为普通数据类型
@@ -52,13 +56,19 @@ class Header extends React.Component {
       <HeaderWrapper>
         <WidthLimit>
           {/* 左边 - logo */}
-          <Logo />
+          <Logo onClick={() => { window.location.href = '/'; }} />
           <Nav>
             {/* 中间 - 左边 */}
             <NavItem className="left active">首页</NavItem>
             <NavItem className="left">下载 App</NavItem>
             {/* 中间 - 右边 */}
-            <NavItem className="right">登录</NavItem>
+            {
+              login ? (
+                <NavItem className="right" onClick={() => { logout(); }}>退出</NavItem>
+              ) : (
+                <NavItem className="right" onClick={() => { window.location.href = '/login'; }}>登录</NavItem>
+              )
+            }
             {/* 中间 - 右边 Aa */}
             <NavItem className="right">
               <i className="iconfont icon-Aa">&#xe636;</i>
@@ -124,7 +134,8 @@ const mapStateToProps = (state) => {
     searchInfoList: state.getIn(["header", "searchInfoList"]),
     page: state.getIn(["header", "page"]),
     pageTotal: state.getIn(["header", "pageTotal"]),
-    mouseIn: state.getIn(["header", "mouseIn"])
+    mouseIn: state.getIn(["header", "mouseIn"]),
+    login: state.getIn(["login", "login"])
   }
 };
 
@@ -170,6 +181,9 @@ const mapDispatchToProps = (dispatch) => ({
     else {
       dispatch(actionCreators.getSearchChangePage(1));
     }
+  },
+  logout: () => {
+    dispatch(loginActionCreators.logout());
   }
 });
 
